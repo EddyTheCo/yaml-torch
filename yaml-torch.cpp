@@ -1,4 +1,4 @@
-#include"utils/yaml-interface.hpp"
+#include"utils/yaml-torch.hpp"
 
 namespace custom_models{
 namespace yaml_interface{
