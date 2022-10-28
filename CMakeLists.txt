@@ -4,7 +4,7 @@ project(yaml-torch VERSION 0.1 DESCRIPTION "interface to torch from config files
 
 find_package(Torch REQUIRED)
 
-add_library(yaml-torch yaml-torch.cpp include/utils/yaml-torch)
+add_library(yaml-torch yaml-torch.cpp include/utils/yaml-torch.hpp)
 
 target_link_libraries(yaml-torch PUBLIC  "${TORCH_LIBRARIES}")
 
