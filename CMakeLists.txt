@@ -20,6 +20,7 @@ if(NOT TARGET yaml-cpp)
 			GIT_TAG yaml-cpp-0.7.0
 			)
 		FetchContent_MakeAvailable(yaml-cpp)
+		install(TARGETS yaml-cpp EXPORT yaml-torchTargets DESTINATION lib)
 	else()
 		message(STATUS "YAML FOUND in ${YAML-CPP_DIR}")
 	endif(NOT YAML-CPP_FOUND)
@@ -32,7 +33,6 @@ target_include_directories(yaml-torch PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_
 install(TARGETS yaml-torch EXPORT yaml-torchTargets DESTINATION lib)
 install(DIRECTORY include/ DESTINATION include/)
 
-install(TARGETS yaml-cpp EXPORT yaml-torchTargets DESTINATION lib)
 install(EXPORT yaml-torchTargets
 	FILE yaml-torchTargets.cmake
 	DESTINATION lib/cmake/yaml-torch
