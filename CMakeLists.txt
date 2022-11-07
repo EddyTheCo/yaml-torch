@@ -30,7 +30,6 @@ target_link_libraries(yaml-torch PUBLIC  yaml-cpp)
 target_include_directories(yaml-torch PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	"$<INSTALL_INTERFACE:include>")
 
-install(TARGETS yaml-torch EXPORT yaml-torchTargets DESTINATION lib)
 install(DIRECTORY include/ DESTINATION include/)
 
 install(EXPORT yaml-torchTargets
