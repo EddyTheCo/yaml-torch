@@ -8,7 +8,6 @@ add_library(yaml-torch yaml-torch.cpp include/utils/yaml-torch.hpp)
 
 target_link_libraries(yaml-torch PUBLIC  "${TORCH_LIBRARIES}")
 
-
 if(NOT TARGET yaml-cpp)
 	find_package(YAML-CPP CONFIG QUIET)
 	if(NOT YAML-CPP_FOUND)
@@ -20,13 +19,13 @@ if(NOT TARGET yaml-cpp)
 			GIT_TAG yaml-cpp-0.7.0
 			)
 		FetchContent_MakeAvailable(yaml-cpp)
-		install(TARGETS yaml-cpp EXPORT yaml-torchTargets DESTINATION lib)
 	else()
 		message(STATUS "YAML FOUND in ${YAML-CPP_DIR}")
 	endif(NOT YAML-CPP_FOUND)
 endif(NOT TARGET yaml-cpp)
 
 target_link_libraries(yaml-torch PUBLIC  yaml-cpp)
+install(TARGETS yaml-cpp EXPORT yaml-torchTargets DESTINATION lib)
 target_include_directories(yaml-torch PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	"$<INSTALL_INTERFACE:include>")
 
