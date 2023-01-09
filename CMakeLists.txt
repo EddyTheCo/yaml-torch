@@ -22,10 +22,10 @@ if(NOT TARGET yaml-cpp)
 	else()
 		message(STATUS "YAML FOUND in ${YAML-CPP_DIR}")
 	endif(NOT YAML-CPP_FOUND)
+install(TARGETS yaml-cpp EXPORT yaml-torchTargets DESTINATION lib)
 endif(NOT TARGET yaml-cpp)
 
 target_link_libraries(yaml-torch PUBLIC  yaml-cpp)
-install(TARGETS yaml-cpp EXPORT yaml-torchTargets DESTINATION lib)
 target_include_directories(yaml-torch PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	"$<INSTALL_INTERFACE:include>")
 
